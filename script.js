@@ -9,9 +9,9 @@ function initVantaBackground() {
     scale: 1.00,
     scaleMobile: 1.00,
     color: 0x4778ff,
-    points: 4,              // manje točaka (manje gibanja)
-    maxDistance: 50,        // kraće linije => mirnije
-    spacing: 50,            // rjeđa mreža => mirniji efekt
+    points: 4,
+    maxDistance: 50,
+    spacing: 50,
     backgroundColor: 0x111624
   });
 }
@@ -86,57 +86,22 @@ document.addEventListener("DOMContentLoaded", function() {
   startTextSlider();
 });
 
-// === VALIDACIJA I SLANJE PREKO GMAIL COMPOSE ===
-const emailInput = document.getElementById('userEmail');
+// === FUNKCIONALNOST GUMBA "CONTACT US" ===
 const contactBtn = document.getElementById('contactBtn');
-const errorEl = document.getElementById('emailError');
-
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-
-function validateEmail() {
-  const value = emailInput.value.trim();
-  const valid = EMAIL_RE.test(value);
-
-  contactBtn.disabled = !valid;
-  emailInput.classList.toggle('invalid', !valid && value.length > 0);
-
-  if (!value) {
-    errorEl.textContent = 'Upišite e-mail adresu.';
-  } else if (!valid) {
-    errorEl.textContent = 'Unesite valjanu e-mail adresu (npr. ime@domena.com).';
-  } else {
-    errorEl.textContent = '';
-  }
-  return valid;
-}
-
-emailInput.addEventListener('input', validateEmail);
+contactBtn.disabled = false; // Gumb je uvijek omogućen
 
 contactBtn.addEventListener('click', (e) => {
   e.preventDefault();
-  if (!validateEmail()) {
-    emailInput.focus();
-    return;
-  }
 
-  const userEmail = emailInput.value.trim();
   const to = 'info@alphawave.hr';
   const subject = 'Upit za Alphawave';
-
-  const bodyLines = [
-    'Napišite poruku...',
-    `Moj e-mail: ${userEmail}`,
-    ''
-  ];
+  const body = 'Pozdrav, želim vas kontaktirati. Napišite poruku...';
 
   const gmailUrl =
     `https://mail.google.com/mail/?view=cm&fs=1&tf=1` +
     `&to=${encodeURIComponent(to)}` +
     `&su=${encodeURIComponent(subject)}` +
-    `&body=${encodeURIComponent(bodyLines.join('\n'))}`;
+    `&body=${encodeURIComponent(body)}`;
 
   window.open(gmailUrl, '_blank', 'noopener');
 });
-
-// inicijalno stanje
-validateEmail();
