@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
 :root {
@@ -26,7 +25,6 @@ body {
     padding: 20px;
     overflow-x: hidden;
     position: relative;
-    /* Dodatni padding za prostor iznad i ispod */
     padding-top: 50px;
     padding-bottom: 50px;
 }
@@ -51,12 +49,11 @@ body {
     z-index: 2;
 }
 
-/* Stil za glavni kontejner s tekstom (Alphawave, podnaslovi, Coming Soon) */
 .text-background {
     background-color: var(--dark-translucent);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    border: 2px solid rgba(255, 255, 255, 0.9);
     border-radius: 30px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
     padding: 40px;
@@ -64,6 +61,26 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.logo-img {
+    max-width: 200px;
+    height: auto;
+    margin-top:-35px;
+    margin-bottom: 5px;
+    filter: brightness(0) invert(1);
+}
+
+.centered-text {
+    background-color: var(--dark-translucent);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 20px;
+    padding: 20px 30px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .main-heading {
@@ -77,7 +94,7 @@ body {
 #text-slider {
     min-height: 25px;
     transition: opacity 1s ease-in-out;
-    margin-bottom: 15px;
+    margin-bottom: 55px;
 }
 
 .subtitle {
@@ -94,7 +111,6 @@ body {
     margin-bottom: 5px;
 }
 
-/* COUNTDOWN STYLES - Pojednostavljeno i optimizirano */
 .countdown {
     display: flex;
     justify-content: center;
@@ -128,11 +144,10 @@ body {
     opacity: 0.8;
 }
 
-/* FORMS AND LINKS - Responsive */
 .form-container {
     margin-top: 40px;
     display: flex;
-    flex-direction: column; /* Podrazumijevano za mobitele */
+    flex-direction: column;
     align-items: center;
     width: 100%;
     max-width: 400px;
@@ -175,7 +190,7 @@ body {
 .links-container {
     margin-top: 20px;
     display: flex;
-    flex-direction: column; /* Podrazumijevano za mobitele */
+    flex-direction: column;
     align-items: center;
 }
 
@@ -197,7 +212,6 @@ body {
     color: var(--main-blue);
 }
 
-/* BOTTOM BAR */
 .bottom-bar {
     position: fixed;
     bottom: 0;
@@ -233,8 +247,8 @@ body {
     margin-right: 10px;
 }
 
-/* PRILAGODBE ZA VEĆE EKRANE */
 @media (min-width: 600px) {
+    .logo-img { max-width: 250px; }
     .main-heading {
         font-size: 2.5rem;
         letter-spacing: 4px;
@@ -267,6 +281,7 @@ body {
 }
 
 @media (min-width: 1024px) {
+    .logo-img { max-width: 300px; }
     .main-heading {
         font-size: 3.5rem;
         letter-spacing: 5px;
@@ -279,8 +294,33 @@ body {
     }
 }
 
-/* Dodaj ovaj dio koda na dno svoje style.css datoteke */
-
 #contactForm {
-    margin-top: 20px; /* Možeš podesiti vrijednost po želji, npr. 20px, 30px, itd. */
+    margin-top: 20px;
+}
+
+.contact-button {
+    width: 100%;
+    padding: 15px 30px;
+    background: transparent;
+    color: var(--main-white);
+    border: 2px solid var(--white);
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.contact-button:hover {
+    background: rgb(28, 191, 246);
+    color: var(--light-blue);
+    border: 1px solid var(--light-blue);
+}
+
+@media (min-width: 600px) {
+    .contact-button {
+        width: auto;
+        padding: 18px 40px;
+    }
 }

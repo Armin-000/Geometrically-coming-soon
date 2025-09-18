@@ -86,9 +86,8 @@ document.addEventListener("DOMContentLoaded", function() {
   startTextSlider();
 });
 
-// === FUNKCIONALNOST GUMBA "CONTACT US" ===
 const contactBtn = document.getElementById('contactBtn');
-contactBtn.disabled = false; // Gumb je uvijek omogućen
+contactBtn.disabled = false;
 
 contactBtn.addEventListener('click', (e) => {
   e.preventDefault();
