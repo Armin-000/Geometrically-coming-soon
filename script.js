@@ -1,14 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
   initVantaBackground();
   startTextSlider();
-  const contactBtn = document.getElementById('contactBtn');
-  if (contactBtn) {
-    contactBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const mailtoUrl = `mailto:info@alphawave.hr?subject=${encodeURIComponent('Upit za Alphawave')}&body=${encodeURIComponent('Pozdrav, želim vas kontaktirati. Napišite poruku...')}`;
-      window.location.href = mailtoUrl;
-    });
-  }
 });
 
 function initVantaBackground() {
@@ -40,6 +32,7 @@ function startTextSlider() {
   
   if (textSlider) {
     const subtitle = textSlider.querySelector('.subtitle');
+    
     function updateSlide() {
       textSlider.style.opacity = 0;
       setTimeout(() => {
@@ -48,6 +41,7 @@ function startTextSlider() {
         currentSlide = (currentSlide + 1) % subtitles.length;
       }, 1000);
     }
+    
     updateSlide();
     setInterval(updateSlide, 4000);
   }
