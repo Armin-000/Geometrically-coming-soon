@@ -327,8 +327,8 @@ body {
 
 @media (max-width: 768px) {
   .contact-button {
-    width: 60%; /* Smanjuje širinu gumba na 60% širine ekrana */
-    padding: 10px 20px; /* Smanjuje unutarnji razmak (padding) */
-    font-size: 16px; /* Smanjuje veličinu fonta */
+    width: 60%;
+    padding: 10px 20px;
+    font-size: 16px;
   }
 }
